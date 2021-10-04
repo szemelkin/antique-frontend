@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.zmovies.nomoredomains.icu';
+export const BASE_URL = 'http://api.84.201.139.181:3000';
 
 const responseCheck = (response) => response.ok ? response : Promise.reject(`Ошибка ${response.status}`);
 

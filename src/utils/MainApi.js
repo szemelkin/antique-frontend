@@ -90,7 +90,7 @@ export class MainApi {
 
 
 const mainApi = new MainApi({
-  address: 'https://api.zmovies.nomoredomains.icu',
+  address: 'http://84.201.139.181:3000',
   token: `Bearer ${localStorage.getItem('token')}`
 });
 export default mainApi;
