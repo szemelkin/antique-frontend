@@ -12,7 +12,7 @@ export class CardsApi {
     }
 
     getCards (data) {
-        return fetch(`http://api.84.201.139.181:3000/`,{
+        return fetch(`http://api.84.201.139.181/`,{
           method: 'GET',
           headers: {
             // authorization: this._token
@@ -24,7 +24,7 @@ export class CardsApi {
 
 const cardsApi = new CardsApi({
     // address: 'https://api.zmovies.nomoredomains.icu/',
-    address: 'http://api.84.201.139.181:3000/',
+    address: 'http://api.84.201.139.181/',
     token: `Bearer ${localStorage.getItem('token')}`
     // token: '2a94bf63-3818-4ae4-afdc-14a08472aae2'  
   });
