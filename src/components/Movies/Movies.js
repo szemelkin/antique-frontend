@@ -7,7 +7,7 @@ import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList'
 import FilterCheckBox from '../Movies/FilterCheckBox/FilterCheckBox'
 import Continue from '../Movies/Continue/Continue'
 
-import moviesApi from '../../utils/MoviesApi'
+import moviesApi from '../../utils/CardsApi'
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
