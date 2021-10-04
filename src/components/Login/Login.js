@@ -115,14 +115,14 @@ const Login = (props) => {
             .then(console.log('dataLogin',dataLogin))
             .then(resetForm)  
             .then(console.log('дошли'))
-            .then(() => history.push('/movies'))
+            .then(() => history.push('/lots'))
             .catch(err => setMessage(err.message || 'Что-то пошло не так!'))
         }
 
     return (
         <form onSubmit = {handleSubmit} className="register">            
-            <img className="header__logo header__logo_type_register" src={reactLogo} alt="Логотип место"/>
-            <h1 className="profile__title profile__title_type_register">Рады видеть!</h1>
+            <p className="header__logo header__logo_type_register" src={reactLogo} alt="Логотип место"></p>
+            <h1 className="profile__title profile__title_type_register">Добро пожаловать!</h1>
 
             <div className="register__input-block">
                 <h2 className="register__input-title">E-mail</h2>

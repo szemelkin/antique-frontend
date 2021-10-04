@@ -4,7 +4,7 @@ import { Route, Switch, useHistory} from 'react-router-dom';
 
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
-import Movies from '../components/Movies/Movies';
+import Lots from './Movies/Lots';
 import Footer from '../components/Footer/Footer';
 import Profile from '../components/Profile/Profile';
 import Register from '../components/Register/Register';
@@ -44,8 +44,8 @@ function App() {
         };    
 
     const testData = {
-        name: 'Popa',
-        email: 'popa@popa.ru',
+        name: '',
+        email: '',
         };    
 
     const handleRequest = () => {
@@ -70,7 +70,7 @@ function App() {
     function handleSignOut() {
         // Удаляем токен из локального хранилища при логауте
         localStorage.removeItem('token');
-        localStorage.removeItem('movies');
+        localStorage.removeItem('lots');
         // Возвращаем пользовательские данные к начальному состоянию
         setCurrentUser(initialData);
         setLoggedIn(false);
@@ -177,7 +177,7 @@ function App() {
             }
             })
             
-            .then(() => history.push('/movies'))
+            .then(() => history.push('/lots'))
             .finally(setShowPreLoader(false))
         }    
 
@@ -193,13 +193,13 @@ function App() {
                                 <Route exact path path = "/">
                                     <Main />
                                 </Route>
-                                <ProtectedRoute path = "/movies"
-                                    component = {Movies}
+                                <ProtectedRoute path = "/lots"
+                                    component = {Lots}
                                     loggedIn = {loggedIn} 
                                     showPreLoader = {showPreLoader}
                                 >
                                 </ProtectedRoute>
-                                <ProtectedRoute path = "/saved-movies"
+                                <ProtectedRoute path = "/saved-lots"
                                     component = {SavedMovies}
                                     loggedIn = {loggedIn} 
                                 >

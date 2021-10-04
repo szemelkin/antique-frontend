@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.zalogguru.ru';
+export const BASE_URL = 'https://api.antiqueinvest.ru';
 
 const responseCheck = (response) => response.ok ? response : Promise.reject(`Ошибка ${response.status}`);
 

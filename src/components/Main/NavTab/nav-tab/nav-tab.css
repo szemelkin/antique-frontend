@@ -1,6 +1,7 @@
 @import url(./__button/nav-tab__button.css);
 @import url(./__buttons/nav-tab__buttons.css);
 @import url(./__title/nav-tab__title.css);
+@import url(./__subtitle/nav-tab__subtitle.css);
 
 .nav-tab {
     margin-left: auto;

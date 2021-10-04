@@ -5,14 +5,15 @@
 
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
     padding-top: 51px;
     min-height: 10vh;
-    align-content: flex-start;
+    /* align-content: flex-start; */
+    align-items: center;
 
     padding-left: 70px;
     padding-right: 70px;
@@ -24,7 +25,8 @@
     .movies-card-list {
         padding-left: 30px;
         padding-right: 30px;
-        justify-content: center;
+        align-items: center;
+        /* justify-content: center; */
     }
 }
 
@@ -34,6 +36,7 @@
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 40px;
-        justify-content: center;
+        align-items: center;
+        /* justify-content: center; */
     }
 }

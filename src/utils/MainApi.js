@@ -49,9 +49,9 @@ export class MainApi {
         duration: Number(data.duration),
         year: Number(data.year),
         description: data.description,
-        image: "https://api.nomoreparties.co" + data.image.url,
+        image: "https://images.antiqueinvest.ru" + data.image.url,
         trailer: data.trailerLink,
-        thumbnail: "https://api.nomoreparties.co" + data.image.formats.thumbnail.url,
+        thumbnail: "https://images.antiqueinvest.ru" + data.image.formats.thumbnail.url,
         cardId: Number(data.id),
         nameRU: data.nameRU,
         nameEN: data.nameEN
@@ -90,7 +90,7 @@ export class MainApi {
 
 
 const mainApi = new MainApi({
-  address: 'http://84.201.139.181:3000',
+  address: 'https://api.antiqueinvest.ru',
   token: `Bearer ${localStorage.getItem('token')}`
 });
 export default mainApi;

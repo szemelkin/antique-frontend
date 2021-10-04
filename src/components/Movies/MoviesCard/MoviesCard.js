@@ -43,6 +43,7 @@ function MoviesCard(props) {
         if (isSavedMovies) {return savedMovies} else {return notSavedMovies}
     }; 
     
+    console.log('picture',props.image)
 
     return (
         <div>
@@ -54,7 +55,7 @@ function MoviesCard(props) {
                     </div>
                     <button onClick = {handleSaveMovies}  className="movies-card__button"><img className="movies-card__icon" src={savedMoviesSrc()}  alt="Здесь должна быть картинка"/></button>
                 </div>
-                <img className="movies-card__image" onClick = {() => handleTrailerLink(props.image.trailerLink)} src={"https://api.nomoreparties.co"+ urlMainPic.url} alt="Здесь должна быть картинка"/>
+                <img className="movies-card__image" onClick = {() => handleTrailerLink(props.image.trailerLink)} src={urlMainPic} alt="Здесь должна быть картинка"/>
             </div>
         </div>
     )

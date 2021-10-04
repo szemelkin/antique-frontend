@@ -44,7 +44,7 @@ const Header = (props) => {
     const signin = 
         <div>
             <header className="header">
-                <img className="header__logo" src={reactLogo} alt="Логотип место"/>
+                <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
                 <div className="header__menu">
                     <Link to="signup" className="header__link" href="/signup">Регистрация</Link>
                     <Link to="signin" className="header__button" href="/signin">Войти</Link>
@@ -83,7 +83,7 @@ const Header = (props) => {
 
     const menuNavigation = (currentUrl) => {
         if (currentUrl == "/") {return signin}
-        else if (currentUrl == '/movies') {return logined}
+        else if (currentUrl == '/lots') {return logined}
         else if (currentUrl == '/saved-movies') {return logined}
         else if (currentUrl == '/profile') {return logined}
         else if (currentUrl == '/signin') {return signing}

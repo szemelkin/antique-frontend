@@ -2,17 +2,17 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import './movies.css'
-import SearchForm from '../Movies/SearchForm/SearchForm'
-import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList'
-import FilterCheckBox from '../Movies/FilterCheckBox/FilterCheckBox'
-import Continue from '../Movies/Continue/Continue'
+import SearchForm from './SearchForm/SearchForm'
+import MoviesCardList from './MoviesCardList/MoviesCardList'
+import FilterCheckBox from './FilterCheckBox/FilterCheckBox'
+import Continue from './Continue/Continue'
 
-import moviesApi from '../../utils/CardsApi'
+import cardsApi from '../../utils/CardsApi'
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-const Movies = () => {
+const Lots = () => {
 
 const currentUser = React.useContext(CurrentUserContext);
 console.log('Movies',currentUser)
@@ -29,9 +29,9 @@ const [firstRender, setFirstRender] = useState(0)
 
 //Достаем данные и сохраняем в локалсторидж
 const handleMoviesRequest = () => {
-    moviesApi.getMovies()
+    cardsApi.getCards()
         .then(res => {
-            localStorage.setItem('movies', JSON.stringify(res))
+            localStorage.setItem('cards', JSON.stringify(res))
         })
         .catch((err) => {console.log(err)});        
 }
@@ -68,7 +68,7 @@ const handleSearchByFrase = (searchFrase) => {
     if (!searchFrase) {
         return;
     }
-    let arrayMovies = JSON.parse(localStorage.getItem('movies'))
+    let arrayMovies = JSON.parse(localStorage.getItem('cards'))
     let arrayForRender = []
     console.log('В поиске все норм пока')
     const ru = /[а-яА-ЯЁё]/;
@@ -200,9 +200,12 @@ const handleShortMovies = (checkBox) => {
                 handleSearchFrase = {handleSearchFrase}
                 handleSearchButton = {handleSearchButton}
             />
-            <FilterCheckBox 
-                handleShortMovies = {handleShortMovies}
-            />
+
+            {
+            // <FilterCheckBox 
+            //     handleShortMovies = {handleShortMovies}
+            // />
+            }
 
             <MoviesCardList
                 nothingToShow = {nothingToShow}
@@ -221,4 +224,4 @@ const handleShortMovies = (checkBox) => {
 
 };
 
-export default Movies;
+export default Lots;

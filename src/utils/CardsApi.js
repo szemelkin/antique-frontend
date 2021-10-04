@@ -12,10 +12,10 @@ export class CardsApi {
     }
 
     getCards (data) {
-        return fetch(`https://api.zalogguru.ru/`,{
+        return fetch(`http://api.antiqueinvest.ru/cards`,{
           method: 'GET',
           headers: {
-            // authorization: this._token
+            authorization: this._token
           }
         })
         .then(this._checkResponse)
@@ -24,7 +24,7 @@ export class CardsApi {
 
 const cardsApi = new CardsApi({
     // address: 'https://api.zmovies.nomoredomains.icu/',
-    address: 'https://api.zalogguru.ru/',
+    address: 'http://api.antiqueinvest.ru/',
     token: `Bearer ${localStorage.getItem('token')}`
     // token: '2a94bf63-3818-4ae4-afdc-14a08472aae2'  
   });

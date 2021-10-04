@@ -19,9 +19,7 @@ const Main = () => {
             <main className="main">
                 <NavTab />
                 <AboutProject />
-                <Techs />
-                <AboutMe />
-                <Portfolio />
+
             </main>
         </div>
     )

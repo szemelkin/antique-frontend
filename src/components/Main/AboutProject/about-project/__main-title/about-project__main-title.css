@@ -14,12 +14,12 @@
 
     border-bottom: 1px solid #DADADA;
 
-    padding-top: 110px;
+    padding-top: 70px;
 
 }
 
 @media (max-width: 768px) {
     .about-project__main-title {    
-        padding-top: 90px;    
+        padding-top: 50px;    
     }
 }
