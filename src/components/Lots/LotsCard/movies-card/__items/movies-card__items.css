@@ -1,0 +1,7 @@
+.movies-card__items {
+    width: 70%;
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

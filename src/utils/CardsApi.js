@@ -15,7 +15,7 @@ export class CardsApi {
         return fetch(`http://api.antiqueinvest.ru/cards`,{
           method: 'GET',
           headers: {
-            authorization: this._token
+            authorization: `Bearer ${localStorage.getItem('token')}`
           }
         })
         .then(this._checkResponse)

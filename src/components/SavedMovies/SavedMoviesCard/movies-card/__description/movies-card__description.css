@@ -1,9 +1,0 @@
-.movies-card__description {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-
-    padding-top: 14px;
-    padding-left: 14px;
-    padding-bottom: 14px;
-}

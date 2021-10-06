@@ -4,14 +4,14 @@ import { Route, Switch, useHistory} from 'react-router-dom';
 
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
-import Lots from './Movies/Lots';
+import Lots from './Lots/Lots';
 import Footer from '../components/Footer/Footer';
 import Profile from '../components/Profile/Profile';
 import Register from '../components/Register/Register';
 import Login from '../components/Login/Login';
-import SavedMovies from '../components/SavedMovies/SavedMovies';
+import SavedLots from './SavedLots/SavedLots';
 import Errors from '../components/Errors/Errors';
-import Preloader from '../components/Movies/Preloader/Preloader';
+import Preloader from './Lots/Preloader/Preloader';
 import ProtectedRoute from './ProtectedRoute';
 
 import mainApi from '../utils/MainApi'
@@ -21,9 +21,6 @@ import * as auth from '../utils/auth';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
-
-    // const currentUser = React.useContext(CurrentUserContext);
-
     
     const [showPreLoader, setShowPreLoader] = useState(false)
 
@@ -120,29 +117,6 @@ function App() {
     
     }
 
-    // const tokenCheck = () => {
-    //     const token = localStorage.getItem('token');      
-    //     if (token) {
-    //         setLoggedIn(true);    
-    //         handleRequest();
-    //         history.push('/movies');
-    // //         auth.getContent(token).then((res) => {
-    // //             if (res) {
-    // //             setLoggedIn(true);
-    // //             setCurrentUser({
-    // //                 name: res.name,`
-    // //                 email: res.email,
-    // //             })
-    // //             console.log(currentUser)
-    // //             history.push('/movies');
-    //             }
-    // //         })
-    //         // .catch(() => history.push('/'))
-    //         }
-    //     }
-
-
-
     function renewUserContextAfterPatching() {
         let token = localStorage.getItem('token');
         console.log(token)
@@ -200,7 +174,7 @@ function App() {
                                 >
                                 </ProtectedRoute>
                                 <ProtectedRoute path = "/saved-lots"
-                                    component = {SavedMovies}
+                                    component = {SavedLots}
                                     loggedIn = {loggedIn} 
                                 >
                                 </ProtectedRoute>

@@ -5,7 +5,7 @@ import reactLogo from '../../images/logo.svg';
 import { useEffect, useState, useContext } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 
-import Preloader from '../Movies/Preloader/Preloader';
+import Preloader from '../Lots/Preloader/Preloader';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import './login/login.css'
 import '../Header/header/header.css'
 import reactLogo from '../../images/logo.svg';
-import Preloader from '../Movies/Preloader/Preloader';
+import Preloader from '../Lots/Preloader/Preloader';
 
 import { useEffect, useState, useContext } from 'react'
 

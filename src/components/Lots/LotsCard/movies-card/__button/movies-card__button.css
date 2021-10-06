@@ -1,0 +1,18 @@
+.movies-card__button {
+    background-color: rgb(238, 200, 30);
+    border: none;
+    padding-right: 14px;
+    height: 30px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    width: 30%;
+
+    align-self: self-end;
+}
+
+.movies-card__button:hover {
+    opacity: 60%;
+    font-weight: 400;
+}

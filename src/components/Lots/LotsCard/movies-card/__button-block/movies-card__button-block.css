@@ -1,0 +1,8 @@
+.movies-card__button-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 15px 15px 15px 15px;
+    align-items: center;
+}

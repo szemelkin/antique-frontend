@@ -14,29 +14,31 @@ export class MainApi {
 }
 
 
-  delSavedCards(data) {
+  delSavedLots(data) {
     return fetch(`${this._address}/cards/${data._id}`,{
       method: 'DELETE',
       headers: {
-        authorization: this._token
+        authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
     .then(this._checkResponse)
   }
 
-  getSavedCards(data) {
-    return fetch(`${this._address}/cards`,{
+  getSavedLots(data) {
+    // return fetch(`${this._address}/cards`,{
+      return fetch(`http://api.antiqueinvest.ru/cards`,{
       method: 'GET',
       headers: {
         // authorization: this._token
-        authorization: this._token
+        authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
     .then(this._checkResponse)
   }
 
-  postSavedCards(data) {
-    return fetch(`${this._address}/cards`,{
+  postSavedLots(data) {
+    // return fetch(`${this._address}/cards`,{
+    return fetch(`http://api.antiqueinvest.ru/cards`,{
       method: 'POST',
       headers: {
         // authorization: this._token,
@@ -49,10 +51,10 @@ export class MainApi {
         duration: Number(data.duration),
         year: Number(data.year),
         description: data.description,
-        image: "https://images.antiqueinvest.ru" + data.image.url,
+        image: data.image,
         trailer: data.trailerLink,
-        thumbnail: "https://images.antiqueinvest.ru" + data.image.formats.thumbnail.url,
-        cardId: Number(data.id),
+        thumbnail: data.thumbnail,
+        cardId: Number(data.cardId),
         nameRU: data.nameRU,
         nameEN: data.nameEN
       })
@@ -90,7 +92,7 @@ export class MainApi {
 
 
 const mainApi = new MainApi({
-  address: 'https://api.antiqueinvest.ru',
+  address: 'http://api.antiqueinvest.ru',
   token: `Bearer ${localStorage.getItem('token')}`
 });
 export default mainApi;
