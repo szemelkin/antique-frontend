@@ -31,7 +31,7 @@ const SavedMovies = (props) => {
                 res.forEach(element => {
                     console.log('element.owner', element.owner)
                     console.log('currentUser._id', currentUser._id)
-                    if (element.owner === currentUser._id) {
+                    if (element.investorId === currentUser._id) {
                         arrayForRenderByOwnId.push(element)
                     }
                 })
@@ -206,8 +206,9 @@ const SavedMovies = (props) => {
             // />
             }
             <SavedMoviesCardList 
-                renderedSavedMovies = {renderedSavedLots}
+                renderedSavedLots = {renderedSavedLots}
                 handleRerenderAfterDel = {handleRerenderAfterDel}
+                handleSavedLotsRequest = {handleSavedLotsRequest}
                 nothingToShowInSavedMoviesSearch = {nothingToShowInSavedLotsSearch}
             />
         </div>

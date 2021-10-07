@@ -2,26 +2,37 @@ import React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 
+import SliderInCard from '../SliderInCard/SliderInCard';
+
 import './movies-card/movies-card.css'
 
 import savedMovies from '../../../images/saved.svg'
 import notSavedMovies from '../../../images/notsaved.svg'
 
 import mainApi from '../../../utils/MainApi'
+import cardsApi from '../../../utils/CardsApi';
 
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
-function LotsCard(props) {
+
+
+
+
+function LotsCard({key, renderedLots, handleLotsRequest, onCardClick, ...item}) {
+
+    console.log('LotsCard', renderedLots)
+    console.log('LotsCard items', item)
 
 
     const currentUser = React.useContext(CurrentUserContext);
 
+    const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0)
 
     // Проверяем есть ли картинка у фильма
     let urlMainPic = ''
-    if (props.image === null) {
+    if (item.image === null) {
         urlMainPic = ''
-    } else {urlMainPic = props.image}
+    } else {urlMainPic = item.image}
 
 
     const handleTrailerLink = (url) => {
@@ -32,10 +43,20 @@ function LotsCard(props) {
 
     //Отправляем фильм на сохранение
     function handleSaveLots() {
-        mainApi.token = localStorage.getItem('token')
-        console.log(props)
-        mainApi.postSavedLots(props)
-        setIsSavedMovies(true)
+
+        console.log('handleRenewSaveLots', item._id, item)
+        let status = "отобранные"
+        cardsApi.renewLotStatus(
+            item,
+            status,
+            currentUser._id
+        )
+
+        // mainApi.token = localStorage.getItem('token')
+        // console.log('handleSaveLots',item)
+        // mainApi.postSavedLots(item)
+        // setIsSavedMovies(true)
+        handleLotsRequest()
     }
 
     //Меняем иконку на карточке фильма на иконку, что фильм сохранен
@@ -44,25 +65,51 @@ function LotsCard(props) {
         if (isSavedMovies) {return savedMovies} else {return notSavedMovies}
     }; 
     
-    console.log('picture',props.image)
+
+    const handlePictureToShowPlus = () => {
+        if (numberOfPictureToShow <  item.image.length-1) {
+            setNumberOfPictureToShow(numberOfPictureToShow+1)
+        } 
+    }
+
+    const handlePictureToShowMinus = () => {
+        if (numberOfPictureToShow > 0) {
+            setNumberOfPictureToShow(numberOfPictureToShow-1)
+        }
+
+        
+    }
+
+    
+
+
 
     return (
 
             <div className="movies-card">
                 <div className="movies-card__picture-block">
-                    <img className="movies-card__image" onClick = {() => handleTrailerLink(props.image.trailerLink)} src={urlMainPic} alt="Здесь должна быть картинка"/>
+                    <button onClick = {handlePictureToShowMinus}  className="movies-card__button">{'<'}</button>
+                    <SliderInCard
+                        images = {item.image}
+                        numberOfPictureToShow = {numberOfPictureToShow}
+                        onCardClick = {onCardClick}
+                    />
+                    <button onClick = {handlePictureToShowPlus}  className="movies-card__button">{'>'}</button>
+                    {
+                    // <img className="movies-card__image" onClick = {() => handleTrailerLink(item.image.trailerLink)} src={urlMainPic} alt="Здесь должна быть картинка"/>
+                    }
                 </div>
                 <div className="movies-card__items">
                     <div className="movies-card__description">
-                        <h2 className="movies-card__title">{props.nameRU}</h2>
+                        <h2 className="movies-card__title">{item.nameRU}</h2>
                         {
                         // <p className="movies-card__duration">{(Math.floor(props.duration/60)) + ' ч ' + (props.duration - (Math.floor(props.duration/60)*60))+ ' м'}</p>
                         }
-                        <p className="movies-card__text">{props.description}</p>
+                        <p className="movies-card__text">{item.description}</p>
                     </div>
                     <div className="movies-card__button-block">
                         <p className="movies-card__price">Инвест цена лота:</p>
-                        <p className="movies-card__price">20 000 руб.</p>
+                        <p className="movies-card__price">{item.investPrice}</p>
                         <button onClick = {handleSaveLots}  className="movies-card__button">Инвестировать</button>
                     </div>
                     

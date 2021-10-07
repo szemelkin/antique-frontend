@@ -20,6 +20,22 @@ export class CardsApi {
         })
         .then(this._checkResponse)
       }
+
+    renewLotStatus (data, status, currentUserId) {
+      return fetch(`http://api.antiqueinvest.ru/cards/renewStatus/${data._id}`,{
+        method: 'PATCH',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          investorId: currentUserId,
+          status: status
+        })
+      })
+      .then(this._checkResponse)
+    }
 }
 
 const cardsApi = new CardsApi({
