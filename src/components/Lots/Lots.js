@@ -30,8 +30,9 @@ const [firstRender, setFirstRender] = useState(0)
 
 //Достаем данные и сохраняем в локалсторидж
 const handleLotsRequest = () => {
-    mainApi.getSavedLots()
+    cardsApi.getCards()
     .then(res => {
+        console.log('handleLotsRequest',res)
         let arrayForRenderByOwnId = []
         res.forEach(element => {
             console.log('element.investorId', element.investorId)
