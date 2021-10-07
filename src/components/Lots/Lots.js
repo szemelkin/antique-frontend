@@ -34,6 +34,8 @@ const handleLotsRequest = () => {
     .then(res => {
         let arrayForRenderByOwnId = []
         res.forEach(element => {
+            console.log('element.investorId', element.investorId)
+            console.log('element.owner', element.owner)
             if (element.investorId === element.owner) {
                 arrayForRenderByOwnId.push(element)
             }
