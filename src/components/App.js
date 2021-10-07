@@ -15,6 +15,7 @@ import Preloader from './Lots/Preloader/Preloader';
 import ProtectedRoute from './ProtectedRoute';
 
 import mainApi from '../utils/MainApi'
+import cardsApi from '../utils/CardsApi';
 
 import * as auth from '../utils/auth';
 
@@ -23,6 +24,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function App() {
     
     const [showPreLoader, setShowPreLoader] = useState(false)
+    const [renderedLots, setRenderedLots] = useState([])
 
     const [loggedIn, setLoggedIn] = useState(false);
     const history = useHistory();
@@ -57,9 +59,38 @@ function App() {
             .catch((err) => {console.log(err)})  
             .finally(setShowPreLoader(false))
         }
+
+
+    const handleLotsRequest = () => {
+        cardsApi.getCards()
+        .then(res => {
+            console.log('handleLotsRequest',res)
+            let arrayForRenderByOwnId = []
+            res.forEach(element => {
+                console.log('element.investorId', element.investorId)
+                console.log('element.owner', element.owner)
+                if (element.investorId === element.owner) {
+                    arrayForRenderByOwnId.push(element)
+                }
+            })
+            setRenderedLots(arrayForRenderByOwnId)
+            // console.log(res)
+        })
+        .catch((err) => {console.log(err)}); 
+    
+    
+        // console.log('handleLotsRequest', 'Сработала загрузка при заходе на страницу')
+        // cardsApi.getCards()
+        //     .then(res => {
+        //         localStorage.setItem('cards', JSON.stringify(res))
+        //         console.log('handleLotsRequest', res)
+        //     })
+        //     .catch((err) => {console.log(err)});        
+    }
         
     useEffect(() => {
         handleRequest()
+        handleLotsRequest()
         setCurrentUser(testData)
         console.log('useEffect handleRequest',currentUser)
     }, []);
@@ -171,6 +202,7 @@ function App() {
                                     component = {Lots}
                                     loggedIn = {loggedIn} 
                                     showPreLoader = {showPreLoader}
+                                    renderedLots = {renderedLots}
                                 >
                                 </ProtectedRoute>
                                 <ProtectedRoute path = "/saved-lots"

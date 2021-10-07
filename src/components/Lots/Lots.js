@@ -13,12 +13,12 @@ import mainApi from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
-const Lots = () => {
+const Lots = ({renderedLots}) => {
 
 const currentUser = React.useContext(CurrentUserContext);
 console.log('Lots',currentUser)
 
-const [renderedLots, setRenderedLots] = useState([])
+
 const [continueState, setContinueState] = useState(true)
 
 const [searchFrase, setSearchFrase] = useState('')
@@ -57,10 +57,10 @@ const handleLotsRequest = () => {
 }
 
 //Выкладываем карточки при первом заходе на страницу
-useEffect(() => {
-    handleLotsRequest()
-    setRenderedLots(JSON.parse(localStorage.getItem('cards')))    
-}, []) 
+// useEffect(() => {
+//     handleLotsRequest()
+//     setRenderedLots(JSON.parse(localStorage.getItem('cards')))    
+// }, []) 
 
 //Обработчик кнопки "Еще"
 const handleClickContinue = () => {
