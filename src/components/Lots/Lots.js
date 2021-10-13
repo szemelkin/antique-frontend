@@ -29,42 +29,42 @@ const handleClickContinue = () => {
 //Постепенная выдача контента
 
 //Самая первая итерация renderMovies еще не обновился
-const countCardsForRendering = (arrayFoundedMovies) => {   
-        let range = 3
-        let countI = 0
-        let arrayForRenderWithRespectToScreen = []
-        let lengthArr = arrayForRenderWithRespectToScreenToList.length
-        for (let i=0; i < lengthArr+range; i++) {
-            arrayForRenderWithRespectToScreen.push(arrayFoundedMovies[i])
-            countI = countI +1
-        }
-    setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen)
-    setFirstRender(countI)
-}
+// const countCardsForRendering = (arrayFoundedMovies) => {   
+//         let range = 3
+//         let countI = 0
+//         let arrayForRenderWithRespectToScreen = []
+//         let lengthArr = arrayForRenderWithRespectToScreenToList.length
+//         for (let i=0; i < lengthArr+range; i++) {
+//             arrayForRenderWithRespectToScreen.push(arrayFoundedMovies[i])
+//             countI = countI +1
+//         }
+//     setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen)
+//     setFirstRender(countI)
+// }
 
 //Самая первая итерация renderMovies еще не обновился
-function countCardsForRendering2() {   
-    let arrayForRenderWithRespectToScreen2 = []
-    let i=0
-    let range = 3
-    let countI = 0
-    if ((firstRender+range)<renderedLots.length) {
-        for (i; i < firstRender+range; i++) {
-            arrayForRenderWithRespectToScreen2.push(renderedLots[i])
-            countI = countI +1
-        }
-        setFirstRender(countI)
-    setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen2)
-    } else {
-        setIsShowContinue(false)
-        for (i; i < renderedLots.length; i++) {
-            arrayForRenderWithRespectToScreen2.push(renderedLots[i])
-            countI = countI +1
-        }
-        setFirstRender(countI)
-        setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen2)
-    }
-}
+// function countCardsForRendering2() {   
+//     let arrayForRenderWithRespectToScreen2 = []
+//     let i=0
+//     let range = 3
+//     let countI = 0
+//     if ((firstRender+range)<renderedLots.length) {
+//         for (i; i < firstRender+range; i++) {
+//             arrayForRenderWithRespectToScreen2.push(renderedLots[i])
+//             countI = countI +1
+//         }
+//         setFirstRender(countI)
+//     setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen2)
+//     } else {
+//         setIsShowContinue(false)
+//         for (i; i < renderedLots.length; i++) {
+//             arrayForRenderWithRespectToScreen2.push(renderedLots[i])
+//             countI = countI +1
+//         }
+//         setFirstRender(countI)
+//         setArrayForRenderWithRespectToScreenToList(arrayForRenderWithRespectToScreen2)
+//     }
+// }
 
 
     return (
@@ -73,13 +73,15 @@ function countCardsForRendering2() {
                 nothingToShow = {nothingToShow}
                 arrayForRenderWithRespectToScreenToList = {arrayForRenderWithRespectToScreenToList}   
             />
-            {isShowContinue ?
+            {
+            // {isShowContinue ?
                 
-            <Continue 
-                handleClickContinue = {handleClickContinue}
-                countCardsForRendering2 = {countCardsForRendering2}   
-                isShowContinue = {isShowContinue}
-            /> : null}
+            // <Continue 
+            //     handleClickContinue = {handleClickContinue}
+            //     countCardsForRendering2 = {countCardsForRendering2}   
+            //     isShowContinue = {isShowContinue}
+            // /> : null}
+            }
         </div>
     )
 };
