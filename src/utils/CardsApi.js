@@ -12,7 +12,7 @@ export class CardsApi {
     }
 
     getCards (data) {
-        return fetch(`http://api.antiqueinvest.ru/cards`,{
+        return fetch(`https://api.antiqueinvest.ru/cards`,{
           // mode: "no-cors",
           method: 'GET',
           headers: {
