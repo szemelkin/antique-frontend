@@ -3,5 +3,13 @@
     text-align: center;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     
+}
+
+
+@media (max-width: 768px) {
+    .movies-card__picture-block {
+        width: 80%;
+    }
 }

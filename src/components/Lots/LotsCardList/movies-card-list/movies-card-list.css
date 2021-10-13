@@ -19,8 +19,8 @@
 
 @media (max-width: 768px) {
     .movies-card-list {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
         justify-content: center;
     }
 }

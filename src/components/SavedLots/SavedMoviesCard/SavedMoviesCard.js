@@ -82,7 +82,7 @@ const SavedMoviesCard = ({handleRerenderSavedLotsAfterButton, onCardClick, reRen
                     <div className="movies-card__button-block">
                         <p className="movies-card__price">Инвест цена лота:</p>
                         <p className="movies-card__price">{item.investPrice}</p>
-                        <button onClick = {handleSaveSavedLots}  className="movies-card__button">Отказаться</button>
+                        <button onClick = {handleSaveSavedLots}  className="movies-card__button movies-card__button_type_long">Отказаться</button>
                     </div>    
                 </div>   
             </div>

@@ -5,3 +5,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+@media (max-width: 768px) {
+    .movies-card__items {
+        width: 90%;
+    }
+}

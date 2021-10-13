@@ -1,4 +1,5 @@
 @import url('./__button/movies-card__button.css');
+@import url('./__button/movies-card__button_type_long.css');
 @import url('./__description/movies-card__description.css');
 @import url('./__duration/movies-card__duration.css');
 @import url('./__image/movies-card__image.css');
@@ -22,15 +23,23 @@
     margin-top: 30px;
 }
 
-@media (min-width: 321px) and (max-width: 768px) {
+@media (max-width: 768px) {
     .movies-card {
-        width: 339px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
     .movies-card {
-        width: 300px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
     }
 }
 

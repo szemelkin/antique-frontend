@@ -1,3 +1,9 @@
 .movies-card__image {
-    width: 200px;
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    .movies-card__image {
+        width: 100%;
+    }
 }

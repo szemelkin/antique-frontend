@@ -82,7 +82,7 @@ function LotsCard({handleRerenderAfterButton, onCardClick, reRenderList, ...item
                     <div className="movies-card__button-block">
                         <p className="movies-card__price">Инвест цена лота:</p>
                         <p className="movies-card__price">{item.investPrice}</p>
-                        <button onClick = {handleSaveLots}  className="movies-card__button">Инвестировать</button>
+                        <button onClick = {handleSaveLots}  className="movies-card__button movies-card__button_type_long">Инвестировать</button>
                     </div>                    
                 </div>                
             </div>

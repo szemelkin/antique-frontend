@@ -1,4 +1,5 @@
 .movies-card__button {
+    width: 10%;
     background-color: rgb(238, 200, 30);
     border: none;
     padding-right: 14px;
