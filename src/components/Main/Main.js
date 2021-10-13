@@ -11,7 +11,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 const Main = () => {
 
     const currentUser = React.useContext(CurrentUserContext);
-    console.log('Main',currentUser)
+    // console.log('Main',currentUser)
 
 
     return (
