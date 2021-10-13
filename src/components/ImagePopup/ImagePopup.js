@@ -4,8 +4,6 @@ import '../ImagePopup/modal.css'
 
 function ImagePopup(props) {
 
-    console.log('ImagePopup', props)
-
     return (
         <section className={`modal modal_type_image ${props.isOpen ? 'modal_is-open': ''}`}>
             <div className="modal__container-image">

@@ -2,165 +2,28 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import './movies.css'
-import SearchForm from './SearchForm/SearchForm'
 import LotsCardList from './LotsCardList/LotsCardList'
-import FilterCheckBox from './FilterCheckBox/FilterCheckBox'
 import Continue from './Continue/Continue'
 
 import cardsApi from '../../utils/CardsApi'
-import mainApi from '../../utils/MainApi';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-
-const Lots = ({renderedLots}) => {
+const Lots = () => {
 
 const currentUser = React.useContext(CurrentUserContext);
-console.log('Lots',currentUser)
-
 
 const [continueState, setContinueState] = useState(true)
-
-const [searchFrase, setSearchFrase] = useState('')
 const [nothingToShow, setNothingToShow] = useState(false)
 const [isShowContinue, setIsShowContinue] = useState(true)
 
 const [arrayForRenderWithRespectToScreenToList, setArrayForRenderWithRespectToScreenToList] = useState([])
 const [firstRender, setFirstRender] = useState(0)
 
-//Достаем данные и сохраняем в локалсторидж
-const handleLotsRequest = () => {
-    cardsApi.getCards()
-    .then(res => {
-        console.log('handleLotsRequest',res)
-        let arrayForRenderByOwnId = []
-        res.forEach(element => {
-            console.log('element.investorId', element.investorId)
-            console.log('element.owner', element.owner)
-            if (element.investorId === element.owner) {
-                arrayForRenderByOwnId.push(element)
-            }
-        })
-        setRenderedLots(arrayForRenderByOwnId)
-        // console.log(res)
-    })
-    .catch((err) => {console.log(err)}); 
-
-
-    // console.log('handleLotsRequest', 'Сработала загрузка при заходе на страницу')
-    // cardsApi.getCards()
-    //     .then(res => {
-    //         localStorage.setItem('cards', JSON.stringify(res))
-    //         console.log('handleLotsRequest', res)
-    //     })
-    //     .catch((err) => {console.log(err)});        
-}
-
-//Выкладываем карточки при первом заходе на страницу
-// useEffect(() => {
-//     handleLotsRequest()
-//     setRenderedLots(JSON.parse(localStorage.getItem('cards')))    
-// }, []) 
 
 //Обработчик кнопки "Еще"
 const handleClickContinue = () => {
     setContinueState(!continueState)
-}
-
-//Обработчик кнопки "Поиск"
-const handleSearch = (el) => {
-    setRenderedLots(el)
-}
-
-//Обработчик кнопки "Поиск"
-const handleSearchFrase = (frase) => {
-    setSearchFrase(frase)
-}
-
-//Обработчик кнопки "Поиск"
-const handleSearchButton = (e) => {
-
-    e.preventDefault();
-    if (!searchFrase) {
-        return;
-    }
-    handleSearchByFrase(searchFrase)
-}
-
-//Поиск по фразе
-const handleSearchByFrase = (searchFrase) => {
-    setIsShowContinue(true)
-    setNothingToShow(false)
-    if (!searchFrase) {
-        return;
-    }
-    let arrayMovies = JSON.parse(localStorage.getItem('cards'))
-    let arrayForRender = []
-    console.log('В поиске все норм пока')
-    const ru = /[а-яА-ЯЁё]/;
-    if (ru.test(String(searchFrase.search))) {
-        arrayMovies.forEach(element => {
-            if (element.nameRU) {
-                if (element.nameRU.includes(searchFrase.search)) {
-                    arrayForRender.push(element)
-                } else { }
-        }
-        setRenderedLots(arrayForRender)
-        countCardsForRendering(arrayForRender)
-
-        console.log('И массив в принципе собрали',arrayForRender)       
-        
-        })
-
-        if (arrayForRender.length==0){setNothingToShow(true)}
-        
-    } else {
-        arrayMovies.forEach(element => {
-            if (element.nameEN) {
-                if (element.nameEN.includes(searchFrase.search)) {
-                    arrayForRender.push(element)
-                } else { }
-        }
-        setRenderedLots(arrayForRender)    
-        })
-        if (arrayForRender.length==0){setNothingToShow(true)}
-    }
-}
-
-//Поиск по фразе и продолжительности
-const handleSearchByFraseAndDuration = (searchFrase) => {
-    setNothingToShow(false)
-    setIsShowContinue(true)
-    if (!searchFrase) {
-        return;
-    }
-
-    let arrayMovies = JSON.parse(localStorage.getItem('cards'))
-    let arrayForRender = []
-
-    //---
-    const ru = /[а-яА-ЯЁё]/;
-    if (ru.test(String(searchFrase.search))) {
-        arrayMovies.forEach(element => {
-            if (element.nameRU) {
-                if (element.nameRU.includes(searchFrase.search) && (element.duration < 40)) {
-                    arrayForRender.push(element)
-                } else { }
-        }
-        setRenderedLots(arrayForRender)
-        })
-        if (arrayForRender.length==0){setNothingToShow(true)}
-    } else {
-        arrayMovies.forEach(element => {
-            if (element.nameEN) {
-                if (element.nameEN.includes(searchFrase.search) && (element.duration < 40)) {
-                    arrayForRender.push(element)
-                } else { }
-        }
-        setRenderedLots(arrayForRender)    
-        })
-        if (arrayForRender.length==0){setNothingToShow(true)}
-    }
 }
 
 //Постепенная выдача контента
@@ -203,52 +66,22 @@ function countCardsForRendering2() {
     }
 }
 
-//Обработчик кнопки "Показать короткие фильмы"
-const handleShortLots = (checkBox) => {
-    if (!checkBox) {
-        handleSearchByFraseAndDuration(searchFrase)
-    } else {
-        handleSearchByFrase(searchFrase)
-    }
-}
 
     return (
         <div className="movies">
-
-            {
-            // <SearchForm 
-            //     handleMoviesRequest = {handleLotsRequest}
-            //     handleSearch = {handleSearch}
-            //     handleSearchFrase = {handleSearchFrase}
-            //     handleSearchButton = {handleSearchButton}
-            // />
-            }
-            {
-            // <FilterCheckBox 
-            //     handleShortMovies = {handleShortMovies}
-            // />
-        }
-
             <LotsCardList
                 nothingToShow = {nothingToShow}
-                renderedLots = {renderedLots}
                 arrayForRenderWithRespectToScreenToList = {arrayForRenderWithRespectToScreenToList}   
-                handleLotsRequest = {handleLotsRequest}  
             />
             {isShowContinue ?
+                
             <Continue 
                 handleClickContinue = {handleClickContinue}
                 countCardsForRendering2 = {countCardsForRendering2}   
                 isShowContinue = {isShowContinue}
-
             /> : null}
-
-
-
-
         </div>
     )
-
 };
 
 export default Lots;

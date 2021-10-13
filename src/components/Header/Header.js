@@ -53,7 +53,7 @@ const Header = (props) => {
     const logined = 
         <div>
             <header className="header">
-                <img className="header__logo" src={reactLogo} alt="Логотип место"/>
+                <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
                 <div className="header__menu">
                     <Link to="lots" className="header__link header__link_type_hidden" href="/lots">Лоты</Link>
                     <Link to="saved-lots" className="header__link header__link_type_hidden" href="/saved-lots">Проинвестированные лоты</Link>

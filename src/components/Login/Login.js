@@ -14,7 +14,7 @@ const Login = (props) => {
 
     const currentUser = React.useContext(CurrentUserContext);
 
-    console.log('Login',currentUser)
+    // console.log('Login',currentUser)
 
     const initialLoginData = {
         name: '',
@@ -51,7 +51,7 @@ const Login = (props) => {
    
     function emailHandler(e) {
         setEmail(e.target.value)
-        console.log('emailHandler', email)
+        // console.log('emailHandler', email)
         handleChange(e)
         const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!re.test(String(e.target.value).toLowerCase())) {
@@ -106,15 +106,15 @@ const Login = (props) => {
     
     const handleSubmit = (e) => {    
         e.preventDefault();
-        console.log('handleSubmit',dataLogin, email)
+        // console.log('handleSubmit',dataLogin, email)
         if (!dataLogin.email || !dataLogin.password) {
-            console.log('прикатились сюда')
+            // console.log('прикатились сюда')
             return;
         }
         props.onLogin(dataLogin)
-            .then(console.log('dataLogin',dataLogin))
+            // .then(console.log('dataLogin',dataLogin))
             .then(resetForm)  
-            .then(console.log('дошли'))
+            // .then(console.log('дошли'))
             .then(() => history.push('/lots'))
             .catch(err => setMessage(err.message || 'Что-то пошло не так!'))
         }

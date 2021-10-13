@@ -13,6 +13,7 @@ export class CardsApi {
 
     getCards (data) {
         return fetch(`http://api.antiqueinvest.ru/cards`,{
+          // mode: "no-cors",
           method: 'GET',
           headers: {
             authorization: `Bearer ${localStorage.getItem('token')}`
@@ -21,8 +22,10 @@ export class CardsApi {
         .then(this._checkResponse)
       }
 
+    //Меняем статус лота
     renewLotStatus (data, status, currentUserId) {
-      return fetch(`http://api.antiqueinvest.ru/cards/renewStatus/${data._id}`,{
+      return fetch(`https://api.antiqueinvest.ru/cards/renewStatus/${data._id}`,{
+        // mode: "no-cors",
         method: 'PATCH',
         headers: {
           authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -40,7 +43,7 @@ export class CardsApi {
 
 const cardsApi = new CardsApi({
     // address: 'https://api.zmovies.nomoredomains.icu/',
-    address: 'http://api.antiqueinvest.ru/',
+    address: 'https://api.antiqueinvest.ru/',
     token: `Bearer ${localStorage.getItem('token')}`
     // token: '2a94bf63-3818-4ae4-afdc-14a08472aae2'  
   });

@@ -24,7 +24,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function App() {
     
     const [showPreLoader, setShowPreLoader] = useState(false)
-    const [renderedLots, setRenderedLots] = useState([])
+  
 
     const [loggedIn, setLoggedIn] = useState(false);
     const history = useHistory();
@@ -34,15 +34,10 @@ function App() {
         email: ''
         })
 
-    console.log('App',currentUser)
                 
 
-    const initialData = {
-        name: '',
-        email: '',
-        };    
 
-    const testData = {
+    const initialData = {
         name: '',
         email: '',
         };    
@@ -52,7 +47,7 @@ function App() {
         let  token  = localStorage.getItem('token')
         mainApi.getUserInfo(token)
             .then(res => {
-                console.log('handleRequest',res)
+                // console.log('handleRequest',res)
                 setCurrentUser(res)
                 
             })
@@ -62,37 +57,40 @@ function App() {
 
 
     const handleLotsRequest = () => {
-        cardsApi.getCards()
-        .then(res => {
-            console.log('handleLotsRequest',res)
-            let arrayForRenderByOwnId = []
-            res.forEach(element => {
-                console.log('element.investorId', element.investorId)
-                console.log('element.owner', element.owner)
-                if (element.investorId === element.owner) {
-                    arrayForRenderByOwnId.push(element)
-                }
-            })
-            setRenderedLots(arrayForRenderByOwnId)
-            // console.log(res)
-        })
-        .catch((err) => {console.log(err)}); 
+        // cardsApi.getCards()
+        // .then(res => {
+        //     let arrayForRenderByOwnId = []
+        //     res.forEach(element => {
+        //         if (element.investorId === element.owner) {
+        //             arrayForRenderByOwnId.push(element)
+        //         }
+        //     })
+        //     setRenderedLots(arrayForRenderByOwnId)
+        // })
+        // .catch((err) => {console.log(err)}); 
     
     
         // console.log('handleLotsRequest', 'Сработала загрузка при заходе на страницу')
-        // cardsApi.getCards()
-        //     .then(res => {
-        //         localStorage.setItem('cards', JSON.stringify(res))
-        //         console.log('handleLotsRequest', res)
-        //     })
-        //     .catch((err) => {console.log(err)});        
+        cardsApi.getCards()
+            .then(res => {
+                localStorage.setItem('cards', JSON.stringify(res))
+                let arrayForRenderByOwnId = []
+                res.forEach(element => {
+                    if (element.investorId === element.owner) {
+                        arrayForRenderByOwnId.push(element)
+                    }
+                })
+                setRenderedLots(arrayForRenderByOwnId)
+                // console.log('handleLotsRequest', res)
+            })
+            .catch((err) => {console.log(err)});        
     }
         
     useEffect(() => {
         handleRequest()
-        handleLotsRequest()
-        setCurrentUser(testData)
-        console.log('useEffect handleRequest',currentUser)
+        // handleLotsRequest()
+        setCurrentUser(initialData)
+        // console.log('useEffect handleRequest',currentUser)
     }, []);
 
     function handleSignOut() {
@@ -134,7 +132,7 @@ function App() {
                 new Error('Что-то пошло не так!');            
             }
             if (res) {
-                console.log('renewUserContextAfterPatching Пошли обновлять контекст')
+                // console.log('renewUserContextAfterPatching Пошли обновлять контекст')
                 renewUserContextAfterPatching()
                 // setCurrentUser(res)
             return res;
@@ -150,12 +148,12 @@ function App() {
 
     function renewUserContextAfterPatching() {
         let token = localStorage.getItem('token');
-        console.log(token)
+        // console.log(token)
         mainApi.getUserInfo(token)
             .then(res => {
             setCurrentUser(res)    
-            console.log('renewUserContextAfterPatching',res)
-            console.log('NewUserContext App', currentUser)              
+            // console.log('renewUserContextAfterPatching',res)
+            // console.log('NewUserContext App', currentUser)              
         })
         .catch((err) => {console.log(err)});
         
@@ -170,10 +168,10 @@ function App() {
                 if (res.token) {      
                     setLoggedIn(true);                
                     localStorage.setItem('token', res.token);
-                    console.log('Даже на handleLogin зашли вот с таким токеном', res.token)
+                    // console.log('Даже на handleLogin зашли вот с таким токеном', res.token)
                     mainApi.getUserInfo(res.token)
                         .then(res => {
-                        console.log('handleRequest',res)
+                        // console.log('handleRequest',res)
                         setCurrentUser(res)
                     
                     })
@@ -202,7 +200,8 @@ function App() {
                                     component = {Lots}
                                     loggedIn = {loggedIn} 
                                     showPreLoader = {showPreLoader}
-                                    renderedLots = {renderedLots}
+                                    // renderedLots = {renderedLots}
+                                    // handleSetRenderedLots = {handleSetRenderedLots}                                    
                                 >
                                 </ProtectedRoute>
                                 <ProtectedRoute path = "/saved-lots"

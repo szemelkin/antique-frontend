@@ -4,6 +4,7 @@ const responseCheck = (response) => response.ok ? response : Promise.reject(`ÐžÑ
 
 export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
+    // mode: "no-cors",
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -22,6 +23,7 @@ export const register = (name, email, password) => {
 
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
+    // mode: "no-cors",
     method: 'POST',
     headers: {
       'Accept': 'application/json',

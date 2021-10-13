@@ -5,8 +5,6 @@ import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
 const SliderInCard = ({images, numberOfPictureToShow, onCardClick}) => {
 
-    console.log('SliderInCard',numberOfPictureToShow)
-
     function handleClick() {
         onCardClick(images[numberOfPictureToShow])
     } 

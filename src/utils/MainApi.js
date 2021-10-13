@@ -16,6 +16,7 @@ export class MainApi {
 
   delSavedLots(data) {
     return fetch(`${this._address}/cards/${data._id}`,{
+      // mode: "no-cors",
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${localStorage.getItem('token')}`
@@ -26,7 +27,8 @@ export class MainApi {
 
   getSavedLots(data) {
     // return fetch(`${this._address}/cards`,{
-      return fetch(`http://api.antiqueinvest.ru/cards`,{
+      return fetch(`https://api.antiqueinvest.ru/cards`,{
+      // mode: "no-cors",
       method: 'GET',
       headers: {
         // authorization: this._token
@@ -38,7 +40,8 @@ export class MainApi {
 
   postSavedLots(data) {
     // return fetch(`${this._address}/cards`,{
-    return fetch(`http://api.antiqueinvest.ru/cards`,{
+    return fetch(`https://api.antiqueinvest.ru/cards`,{
+      // mode: "no-cors",  
       method: 'POST',
       headers: {
         // authorization: this._token,
@@ -63,6 +66,7 @@ export class MainApi {
 
   getUserInfo(token) {
     return fetch(`${this._address}/users/me`,{
+      // mode: "no-cors",
       method: 'GET',
       headers: {
         // authorization: this._token
@@ -75,6 +79,7 @@ export class MainApi {
 
   renewUserInfo(data) {
     return fetch(`${this._address}/users/me`,{
+      // mode: "no-cors",
       method: 'PATCH',
       headers: {
         authorization: this._token,
@@ -92,7 +97,7 @@ export class MainApi {
 
 
 const mainApi = new MainApi({
-  address: 'http://api.antiqueinvest.ru',
+  address: 'https://api.antiqueinvest.ru',
   token: `Bearer ${localStorage.getItem('token')}`
 });
 export default mainApi;
