@@ -10,9 +10,9 @@ const Footer = () => {
     const common = 
         <div>
             <footer className="footer">
-                
-                <p className="footer__description-text">Чтобы получить приглашение в Клуб, отправьте письмо в свободной форме на new@antiqueinvest.ru</p>
-                
+                {
+                // <p className="footer__description-text">Чтобы получить приглашение в Клуб, отправьте письмо в свободной форме на new@antiqueinvest.ru</p>
+                }
                 <div className="footer__line"></div>
                 
                 {
