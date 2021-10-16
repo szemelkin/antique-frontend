@@ -9,6 +9,7 @@ import SavedMoviesCard from '../SavedMoviesCard/SavedMoviesCard'
 import ImagePopup from '../../ImagePopup/ImagePopup';
 
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
+import HeaderLots from '../../Lots/HeaderLots/HeaderLots';
 
 const SavedMoviesCardList = ({nothingToShowInSavedMoviesSearch}) => {
 
@@ -28,10 +29,16 @@ const SavedMoviesCardList = ({nothingToShowInSavedMoviesSearch}) => {
     }, []) 
 
     //Ререндерим при нажатии кнопки
-    useEffect(() =>{
-        // console.log('Lots Useeffect', reRenderSavedList)
-        handleSavedLotsRequest()
-    }, [reRenderSavedList])
+    // useEffect(() =>{
+    //     // console.log('Lots Useeffect', reRenderSavedList)
+    //     handleSavedLotsRequest()
+    // }, [reRenderSavedList])
+
+    function handleButtonCancelInvest() {
+        handleSavedLotsRequest();
+    }
+
+
 
 
     function handleCardClick(card) {
@@ -76,6 +83,7 @@ const SavedMoviesCardList = ({nothingToShowInSavedMoviesSearch}) => {
 
     return (
         <section className="movies-card-list">
+            
         {(nothingToShowInSavedMoviesSearch) && <span className="search-form__text search-form__text_type_answer">{textInMoviesCardList}</span>}
             {                
                 renderedSavedLots.map((item,i) => {
@@ -83,8 +91,7 @@ const SavedMoviesCardList = ({nothingToShowInSavedMoviesSearch}) => {
                             <SavedMoviesCard 
                                 key = {i}  
                                 onCardClick = {handleCardClick}
-                                handleRerenderSavedLotsAfterButton = {handleRerenderSavedLotsAfterButton}
-                                reRenderSavedList = {reRenderSavedList}   
+                                handleButtonCancelInvest = {handleButtonCancelInvest} 
                                 {...item}
                             />
                             )

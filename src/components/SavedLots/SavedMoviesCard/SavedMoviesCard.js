@@ -13,7 +13,7 @@ import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
 
 
-const SavedMoviesCard = ({handleRerenderSavedLotsAfterButton, onCardClick, reRenderSavedList, ...item}) => {
+const SavedMoviesCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0);
@@ -39,7 +39,8 @@ const SavedMoviesCard = ({handleRerenderSavedLotsAfterButton, onCardClick, reRen
             status,
             item.owner
         )
-        handleRerenderSavedLotsAfterButton(reRenderSavedList)
+        .then(handleButtonCancelInvest)
+        // handleRerenderSavedLotsAfterButton(reRenderSavedList)
         // console.log('LotsCard',reRenderSavedList)
     }
 
@@ -80,7 +81,7 @@ const SavedMoviesCard = ({handleRerenderSavedLotsAfterButton, onCardClick, reRen
                         <p className="movies-card__text">{item.description}</p>
                     </div>
                     <div className="movies-card__button-block">
-                        <p className="movies-card__price">Инвест цена лота:</p>
+                        <p className="movies-card__price">Инвестцена лота:</p>
                         <p className="movies-card__price">{item.investPrice}</p>
                         <button onClick = {handleSaveSavedLots}  className="movies-card__button movies-card__button_type_long">Отказаться</button>
                     </div>    

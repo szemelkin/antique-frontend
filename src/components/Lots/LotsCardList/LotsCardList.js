@@ -9,6 +9,7 @@ import ImagePopup from '../../ImagePopup/ImagePopup';
 
 import cardsApi from '../../../utils/CardsApi';
 
+// import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
 const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) => {
 
@@ -17,40 +18,23 @@ const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) 
 
     const [isPhotoPopupOpen, setIsPhotoPopupOpen] = React.useState(false)
     const [selectedCard, setSelectedCard] = React.useState({})
-    const [reRenderList, setReRenderList] = useState(true)
     const [renderedLots, setRenderedLots] = useState([])
+
+    const [test, setTest] = useState(false)
 
 
     // Рендерим первый раз
-    useEffect(() => {        
-
-        let cleanupFunction = false;
-
-        const fetchData = async () => {
-            try {
-                
-            // handleSetRenderedLots(JSON.parse(localStorage.getItem('cards')))    
-            // console.log('Lots Useeffect', JSON.parse(localStorage.getItem('cards')))
-                if(!cleanupFunction) handleLotsRequest();
-            } catch (e) {
-                console.error(e.message)
-            }
-        }
-
-        fetchData();
-        
-        return () => cleanupFunction = true;
-    
+    useEffect(() => {       
+        handleLotsRequest();            
     }, []) 
 
-    //Ререндерим при нажатии кнопки
-    useEffect(() =>{
-        let cleanupFunction = false;
-        // console.log('Lots Useeffect', reRenderList)
-        handleLotsRequest()
 
-        return () => cleanupFunction = true;
-    }, [reRenderList])
+
+    function handleButtonInvest() {
+        handleLotsRequest();
+        setTest(true);
+    }
+
 
 
     function handleCardClick(card) {
@@ -67,17 +51,10 @@ const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) 
         setRenderedLots(renderedLots)
     }
 
-    function handleRerenderAfterButton(event) {
-        setReRenderList(event =>!event)   
-        // console.log('Lots',reRenderList)
-    }
-
     //Достаем данные и сохраняем в локалсторидж
     const handleLotsRequest = () => {        
         cardsApi.getCards()
             .then(res => {
-                // console.log(res)
-                // localStorage.setItem('cards', JSON.stringify(res))
                 let arrayForRenderByOwnId = []
                 res.forEach(element => {
                     if (element.investorId === element.owner) {
@@ -104,8 +81,8 @@ const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) 
                             <LotsCard 
                                 key = {i} 
                                 onCardClick = {handleCardClick}
-                                handleRerenderAfterButton = {handleRerenderAfterButton}
-                                reRenderList = {reRenderList}                                
+                                // handleRerenderAfterButton = {handleRerenderAfterButton}
+                                handleButtonInvest = {handleButtonInvest}                               
                                 {...item}
                             />
                             )

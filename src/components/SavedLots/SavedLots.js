@@ -5,6 +5,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 import '../Lots/movies.css'
 import SavedMoviesCardList from './SavedMoviesCardList/SavedMoviesCardList'
 import mainApi from '../../utils/MainApi'
+import HeaderLots from '../Lots/HeaderLots/HeaderLots';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -52,6 +53,7 @@ const SavedMovies = (props) => {
     
     return (
         <div className="movies">
+            <HeaderLots />
             <SavedMoviesCardList 
                 renderedSavedLots = {renderedSavedLots}
                 handleRerenderAfterDel = {handleRerenderAfterDel}

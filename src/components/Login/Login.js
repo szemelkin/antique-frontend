@@ -9,6 +9,7 @@ import { useEffect, useState, useContext } from 'react'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useStateIfMounted } from 'use-state-if-mounted';
 
 const Login = (props) => {
 
@@ -31,12 +32,18 @@ const Login = (props) => {
     const [emailDirty, setEmailDirty] = useState(false)
     const [passwordDirty, setPasswordDirty] = useState(false)
 
-    const [emailError, setEmailError] = useState('Емейл не может быть пустым')
-    const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
+    const [emailError, setEmailError] = useStateIfMounted('Емейл не может быть пустым')
+    const [passwordError, setPasswordError] = useStateIfMounted('Пароль не может быть пустым')
 
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useStateIfMounted('')
 
     const [formValid, setFormValid] = useState(false)
+
+    const resetForm = () => {
+        setPasswordError('')
+        setEmailError('')
+        setMessage('');
+    }
 
 
     //Проверка наличия емейла и пароля
@@ -98,11 +105,7 @@ const Login = (props) => {
     }
 
     
-    const resetForm = () => {
-        setPasswordError('')
-        setEmailError('')
-        setMessage('');
-    }
+
     
     const handleSubmit = (e) => {    
         e.preventDefault();

@@ -13,7 +13,7 @@ import cardsApi from '../../../utils/CardsApi';
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
 
-function LotsCard({handleRerenderAfterButton, onCardClick, reRenderList, ...item}) {
+function LotsCard({ handleButtonInvest, onCardClick, ...item}) {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0)
@@ -39,8 +39,7 @@ function LotsCard({handleRerenderAfterButton, onCardClick, reRenderList, ...item
             status,
             currentUser._id
         )
-        handleRerenderAfterButton(reRenderList)
-        // console.log('LotsCard',reRenderList)
+        .then(handleButtonInvest)
     }
 
     //Меняем иконку на карточке фильма на иконку, что фильм сохранен    
@@ -80,7 +79,7 @@ function LotsCard({handleRerenderAfterButton, onCardClick, reRenderList, ...item
                         <p className="movies-card__text">{item.description}</p>
                     </div>
                     <div className="movies-card__button-block">
-                        <p className="movies-card__price">Инвест цена лота:</p>
+                        <p className="movies-card__price">Инвестцена лота:</p>
                         <p className="movies-card__price">{item.investPrice}</p>
                         <button onClick = {handleSaveLots}  className="movies-card__button movies-card__button_type_long">Инвестировать</button>
                     </div>                    

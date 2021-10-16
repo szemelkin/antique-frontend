@@ -177,7 +177,7 @@ const Register = ({ onRegister }) => {
                 />
                 {(passwordDirty && passwordError) && <span className="register__input-error" id="modal__input-password-error">{passwordError}</span>}
             </div>
-            {props.showPreLoader ? <Preloader />: null}
+            
             <button 
                 disabled={!formValid} 
                 type='submit' 

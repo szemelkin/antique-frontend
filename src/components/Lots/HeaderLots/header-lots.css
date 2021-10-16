@@ -1,0 +1,20 @@
+.header-lots_title {
+    font-size: 30px;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 500;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+    text-align: center;
+
+
+}
+
+
+@media (max-width: 420px) {
+    .header-lots_title {
+        font-size: 20px;
+    }
+}

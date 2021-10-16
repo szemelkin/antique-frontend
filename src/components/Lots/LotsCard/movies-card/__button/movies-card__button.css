@@ -8,7 +8,9 @@
     font-weight: 600;
 }
 
-.movies-card__button:hover {
+.movies-card__button:active {
     opacity: 60%;
     font-weight: 400;
+    background-color: rgb(240, 227, 170);
+
 }
