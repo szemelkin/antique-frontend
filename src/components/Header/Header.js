@@ -44,7 +44,9 @@ const Header = (props) => {
             <header className="header">
                 <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
                 <div className="header__menu">
-                    <Link to="signup" className="header__link" href="/signup">Регистрация</Link>
+                    {
+                    // <Link to="signup" className="header__link" href="/signup">Регистрация</Link>
+                    }
                     <Link to="signin" className="header__button" href="/signin">Войти</Link>
                 </div>
             </header>
