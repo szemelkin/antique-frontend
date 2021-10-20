@@ -11,6 +11,6 @@
 
 @media (max-width: 768px) {
     .movies-card__picture-block {
-        width: 80%;
+        width: 100%;
     }
 }

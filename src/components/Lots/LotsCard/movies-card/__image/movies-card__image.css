@@ -5,6 +5,7 @@
 
 @media (max-width: 768px) {
     .movies-card__image {
-        width: 100%;
+        /* width: 100%; */
+        flex-basis: 100%;
     }
 }
