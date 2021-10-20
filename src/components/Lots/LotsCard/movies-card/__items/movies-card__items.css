@@ -9,6 +9,6 @@
 
 @media (max-width: 768px) {
     .movies-card__items {
-        width: 90%;
+        width: 100%;
     }
 }
