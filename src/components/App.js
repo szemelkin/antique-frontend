@@ -13,6 +13,7 @@ import SavedLots from './SavedLots/SavedLots';
 import Errors from '../components/Errors/Errors';
 import Preloader from './Lots/Preloader/Preloader';
 import ProtectedRoute from './ProtectedRoute';
+import Adminka from './Adminka/Adminka';
 
 import mainApi from '../utils/MainApi'
 import cardsApi from '../utils/CardsApi';
@@ -22,6 +23,8 @@ import * as auth from '../utils/auth';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
+
+    console.log('CurrentUserContext', CurrentUserContext)
     
     const [showPreLoader, setShowPreLoader] = useState(false)
   
@@ -91,6 +94,17 @@ function App() {
         // handleLotsRequest()
         setCurrentUser(initialData)
         // console.log('useEffect handleRequest',currentUser)
+
+        //Проверка при перезагрузке, если пользователь зарегистрирован
+        // let token = localStorage.getItem('token');
+        // mainApi.getUserInfo(token).then( res => {
+        //     if (res.statusCode === 200) {
+        //         setLoggedIn(true)
+        //     }
+        //     console.log('checkLoginned', res)
+        // }
+        // );
+
     }, []);
 
     function handleSignOut() {
@@ -196,6 +210,7 @@ function App() {
                                 <Route exact path path = "/">
                                     <Main />
                                 </Route>
+
                                 <ProtectedRoute path = "/lots"
                                     component = {Lots}
                                     loggedIn = {loggedIn} 
@@ -204,11 +219,13 @@ function App() {
                                     // handleSetRenderedLots = {handleSetRenderedLots}                                    
                                 >
                                 </ProtectedRoute>
+
                                 <ProtectedRoute path = "/saved-lots"
                                     component = {SavedLots}
                                     loggedIn = {loggedIn} 
                                 >
                                 </ProtectedRoute>
+
                                 <ProtectedRoute path = "/profile"
                                     component = {Profile}
                                     loggedIn = {loggedIn} 
@@ -217,6 +234,12 @@ function App() {
                                     handleSignOut = {handleSignOut}
                                     handleRenewUser = {handleRenewUser}
                                     renewUserContextAfterPatching = {renewUserContextAfterPatching}
+                                >
+                                </ProtectedRoute>
+
+                                <ProtectedRoute path = "/adminka"
+                                    component = {Adminka}
+                                    loggedIn = {true}
                                 >
                                 </ProtectedRoute>
                             
@@ -234,6 +257,7 @@ function App() {
                                     showPreLoader = {showPreLoader}
                                 />
                             </Route>
+
                             
 
                         </Switch>

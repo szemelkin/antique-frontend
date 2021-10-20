@@ -1,5 +1,6 @@
 .movies-card__image {
     width: 80%;
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {

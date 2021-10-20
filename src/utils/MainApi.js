@@ -1,3 +1,5 @@
+const responseCheck = (response) => response.ok ? response : Promise.reject(`Ошибка ${response.status}`);
+
 export class MainApi {
   constructor({address, token}) {
     this._address = address;
@@ -38,31 +40,7 @@ export class MainApi {
     .then(this._checkResponse)
   }
 
-  postSavedLots(data) {
-    // return fetch(`${this._address}/cards`,{
-    return fetch(`https://api.antiqueinvest.ru/cards`,{
-      // mode: "no-cors",  
-      method: 'POST',
-      headers: {
-        // authorization: this._token,
-        authorization: this._token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 
-        country: data.country,
-        director: data.director,
-        duration: Number(data.duration),
-        year: Number(data.year),
-        description: data.description,
-        image: data.image,
-        trailer: data.trailerLink,
-        thumbnail: data.thumbnail,
-        cardId: Number(data.cardId),
-        nameRU: data.nameRU,
-        nameEN: data.nameEN
-      })
-    })
-  }
+
 
   getUserInfo(token) {
     return fetch(`${this._address}/users/me`,{
@@ -90,6 +68,42 @@ export class MainApi {
         email: data.email
       })
     })
+  }
+
+  getAllUsers() {
+    return fetch(`https://api.antiqueinvest.ru/users`,{
+      // mode: "no-cors",
+      method: 'GET',
+      headers: {
+        // authorization: this._token
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(this._checkResponse)
+
+  }
+
+  createNewUser(name, email, password) {
+    return fetch(`https://api.antiqueinvest.ru/signup`,{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name: name,
+        email: email,
+        password: password
+      })
+    })
+      .then(responseCheck)
+      .then((res) => {
+        if(res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      });  
+
   }
 
 

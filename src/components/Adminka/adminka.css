@@ -1,0 +1,13 @@
+.adminka {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.adminka_left-block {
+    width: 50%;
+}
+
+.adminka_right-block {
+    width: 50%;
+}

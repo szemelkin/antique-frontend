@@ -1,9 +1,11 @@
 .movies-card__button_type_long {
     width: 30%;
     height: 40px;
-    background-color: rgb(238, 200, 30);
+    background-color: rgba(60, 235, 139, 100);
     border: none;
     padding-right: 14px;
+
+    color: #534b4b;
 
     font-size: 16px;
     font-weight: 600;
@@ -18,5 +20,7 @@
 
         align-items: normal;
         justify-content: center;
+        
+        margin-top: 20px;
     }
 }

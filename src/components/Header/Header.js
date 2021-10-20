@@ -72,6 +72,29 @@ const Header = (props) => {
                 </div>
             </header>
         </div>
+
+    const adminka = 
+    <div>
+        <header className="header">
+            <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
+            <div className="header__menu">
+                <Link to="lots" className="header__link header__link_type_hidden" href="/lots">Лоты для инвестирования</Link>
+                <Link to="saved-lots" className="header__link header__link_type_hidden" href="/saved-lots">Выбранные вами лоты</Link>
+                <Link to="profile" className="header__link header__link_type_hidden" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
+                <button id='burgerButton' onClick = {(e) => handleBurger()} className="header__burger-button"><img className="header__burger" src={burgerMenu}/></button>  
+                <button id='crossButton' onClick = {(e) => handleCrossButton()} className="header__burger-button header__burger-button_type_black header__invisible"><img className="header__burger" src={crossButton}/></button>                  
+                <div id='surprise' className="header__burger-menu header__invisible">
+                    <div id='surprise1' className="header__burger-menu-links-left header__invisible"></div>  
+                    <div id='surprise2' className="header__burger-menu-links header__invisible">           
+                        <Link to="" id='surprise3' className="header__link_type_burger header__invisible" href="/">Главная</Link>          
+                        <Link to="lots" id='surprise4' className="header__link_type_burger header__invisible" href="/Lots">Лоты для инвестирования</Link>
+                        <Link to="saved-lots" id='surprise5' className="header__link_type_burger header__invisible" href="/saved-lots">Проинвестированные лоты</Link>
+                        <Link onClick = {props.handleRequest} to="profile" id='surprise6' className="header__link_type_burger header__invisible" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
+                    </div>  
+                </div>
+            </div>
+        </header>
+    </div>
     
     const signing = 
         <div>
@@ -85,6 +108,7 @@ const Header = (props) => {
         else if (currentUrl == '/saved-lots') {return logined}
         else if (currentUrl == '/profile') {return logined}
         else if (currentUrl == '/signin') {return signing}
+        else if (currentUrl == '/adminka') {return adminka}
     }
 
     return (

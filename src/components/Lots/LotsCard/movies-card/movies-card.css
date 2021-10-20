@@ -8,6 +8,7 @@
 @import url('./__icon/movies-card__icon.css');
 @import url('./__picture-block/movies-card__picture-block.css');
 @import url('./__text/movies-card__text.css');
+@import url('./__text/movies-card__text_type_image.css');
 @import url('./__button-block/movies-card__button-block.css');
 @import url('./__price/movies-card__price.css');
 
@@ -16,6 +17,7 @@
 
 .movies-card {
     width: 100%;
+    /* height: 200px; */
 
     display: flex;
     flex-direction: row;
