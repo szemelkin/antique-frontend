@@ -59,10 +59,10 @@ const SavedMoviesCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
     const handlePictureToShowMinus = () => {
         if (numberOfPictureToShow > 0) {
             setNumberOfPictureToShow(numberOfPictureToShow-1)
-        }
-
-        
+        }       
     }
+
+    console.log('SavedMovies', item)
 
     return (
             <div className="movies-card">
@@ -81,9 +81,27 @@ const SavedMoviesCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
                         <p className="movies-card__text">{item.description}</p>
                     </div>
                     <div className="movies-card__button-block">
-                        <p className="movies-card__price">Инвестцена лота:</p>
-                        <p className="movies-card__price">{item.investPrice}</p>
-                        <button onClick = {handleSaveSavedLots}  className="movies-card__button movies-card__button_type_long">Отказаться</button>
+                        <table>
+                            <tbody>
+                                <tr className="movies-card__text">
+                                    <td>Инвестцена:</td>
+                                    <td>{item.investPrice}</td>
+                                </tr>
+                                <tr className="movies-card__text">
+                                    <td>Цена продажи:</td>
+                                    <td>{item.sellPrice}</td>
+                                </tr>
+                                <tr className="movies-card__text">
+                                    <td>Доходность:</td>
+                                    <td>{item.revenueFromLot}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {(item.status === 'отобранные') && <button onClick = {handleSaveSavedLots}  className="movies-card__button movies-card__button_type_long">Отказаться</button>}
+                        {(item.status === 'в работе') && <button onClick = {handleSaveSavedLots}  disabled className="movies-card__button movies-card__button_type_long movies-card__button_type_in-work">В работе</button>}
+                        {
+                        // <button onClick = {handleSaveSavedLots}  className="movies-card__button movies-card__button_type_long">Отказаться</button>
+                        }
                     </div>    
                 </div>   
             </div>

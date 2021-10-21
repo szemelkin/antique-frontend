@@ -6,6 +6,7 @@ import '../Lots/movies.css'
 import SavedMoviesCardList from './SavedMoviesCardList/SavedMoviesCardList'
 import mainApi from '../../utils/MainApi'
 import HeaderLots from '../Lots/HeaderLots/HeaderLots';
+import UserGuide from '../Lots/UserGuide/UserGuide';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -54,6 +55,7 @@ const SavedMovies = (props) => {
     return (
         <div className="movies">
             <HeaderLots />
+            <UserGuide />
             <SavedMoviesCardList 
                 renderedSavedLots = {renderedSavedLots}
                 handleRerenderAfterDel = {handleRerenderAfterDel}

@@ -5,6 +5,7 @@ import './movies.css'
 import LotsCardList from './LotsCardList/LotsCardList'
 import Continue from './Continue/Continue'
 import HeaderLots from './HeaderLots/HeaderLots';
+import UserGuide from './UserGuide/UserGuide';
 
 import cardsApi from '../../utils/CardsApi'
 
@@ -71,6 +72,7 @@ const handleClickContinue = () => {
     return (
         <div className="movies">
             <HeaderLots />
+            <UserGuide />
             <LotsCardList
                 nothingToShow = {nothingToShow}
                 arrayForRenderWithRespectToScreenToList = {arrayForRenderWithRespectToScreenToList}   

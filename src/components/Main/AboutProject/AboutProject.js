@@ -11,7 +11,7 @@ const AboutProject = () => {
             <div className="about-project__description">
                 <div className="about-project__description_block">
                     <h3 className="about-project__description_title">Инвестирование с высокой доходностью</h3>
-                    <p className="about-project__description_text">Участники клуба имеют возможность инвестировать в приобретение антикварных предметов, чтобы получать прибыль на последующей их перепродаже </p>
+                    <p className="about-project__description_text">Участники Клуба имеют возможность инвестировать в приобретение антикварных предметов, чтобы получать прибыль на последующей их перепродаже </p>
                 </div>
                 <div className="about-project__description_block">
                     <h3 className="about-project__description_title">Систематизация уникальных знаний для роста доходности</h3>

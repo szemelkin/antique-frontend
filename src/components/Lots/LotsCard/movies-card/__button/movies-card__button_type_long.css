@@ -1,6 +1,6 @@
 .movies-card__button_type_long {
     width: 30%;
-    height: 80px;
+    /* height: 80px; */
     background-color: rgba(60, 235, 139, 100);
     border: none;
     padding-right: 14px;
@@ -11,9 +11,16 @@
 
     font-size: 16px;
     font-weight: 600;
+    white-space: nowrap;
 
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.movies-card__button_type_in-work {
+
+    background-color: rgb(238 214 42);
+
 }
 
 @media (max-width: 768px) {
