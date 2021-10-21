@@ -12,5 +12,6 @@
 @media (max-width: 768px) {
     .movies-card__picture-block {
         width: 100%;
+        padding-top: 15px;
     }
 }
