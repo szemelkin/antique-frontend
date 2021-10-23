@@ -17,7 +17,7 @@ const HistoryLotCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
 
     const currentUser = React.useContext(CurrentUserContext);
     const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0);
-    
+
     // Проверяем есть ли картинка у фильма
     var urlMainPic = ''
     if (item.image === null) {
@@ -62,10 +62,12 @@ const HistoryLotCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
                                     <td>Инвестцена:</td>
                                     <td>{item.investPrice}</td>
                                 </tr>
-                                <tr className="movies-card__text">
-                                    <td>Цена продажи:</td>
-                                    <td>{item.sellPrice}</td>
-                                </tr>
+                                {
+                                // <tr className="movies-card__text">
+                                //     <td>Цена продажи:</td>
+                                //     <td>{item.sellPrice}</td>
+                                // </tr>
+                                }
                                 <tr className="movies-card__text">
                                     <td>Доход инвестора:</td>
                                     <td>{item.revenueFromLot}</td>

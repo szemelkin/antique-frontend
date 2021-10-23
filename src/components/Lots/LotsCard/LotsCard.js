@@ -85,10 +85,12 @@ function LotsCard({ handleButtonInvest, onCardClick, ...item}) {
                                     <td>Инвестцена:</td>
                                     <td>{item.investPrice}</td>
                                 </tr>
-                                <tr className="movies-card__text">
-                                    <td>Цена продажи:</td>
-                                    <td>{item.sellPrice}</td>
-                                </tr>
+                                {
+                                // <tr className="movies-card__text">
+                                //     <td>Цена продажи:</td>
+                                //     <td>{item.sellPrice}</td>
+                                // </tr>
+                                }
                                 <tr className="movies-card__text">
                                     <td>Доход инвестора:</td>
                                     <td>{item.revenueFromLot}</td>

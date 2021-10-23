@@ -57,7 +57,7 @@ const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) 
             .then(res => {
                 let arrayForRenderByOwnId = []
                 res.forEach(element => {
-                    if (element.investorId === element.owner) {
+                    if (element.status === "каталог") {
                         arrayForRenderByOwnId.push(element)
                     }
                 })
