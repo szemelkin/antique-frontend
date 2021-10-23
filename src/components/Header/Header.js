@@ -66,7 +66,7 @@ const Header = (props) => {
                     <div id='surprise' className="header__burger-menu header__invisible">
                         <div id='surprise1' className="header__burger-menu-links-left header__invisible"></div>  
                         <div id='surprise2' className="header__burger-menu-links header__invisible">           
-                            <Link to="" id='surprise3' className="header__link_type_burger header__invisible" href="/">Главная</Link>          
+                            <Link to="history" id='surprise3' className="header__link_type_burger header__invisible" href="/history">История сделок</Link>          
                             <Link to="lots" id='surprise4' className="header__link_type_burger header__invisible" href="/Lots">Лоты для инвестирования</Link>
                             <Link to="saved-lots" id='surprise5' className="header__link_type_burger header__invisible" href="/saved-lots">Проинвестированные лоты</Link>
                             <Link onClick = {props.handleRequest} to="profile" id='surprise6' className="header__link_type_burger header__invisible" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
@@ -90,7 +90,7 @@ const Header = (props) => {
                 <div id='surprise' className="header__burger-menu header__invisible">
                     <div id='surprise1' className="header__burger-menu-links-left header__invisible"></div>  
                     <div id='surprise2' className="header__burger-menu-links header__invisible">           
-                        <Link to="" id='surprise3' className="header__link_type_burger header__invisible" href="/">Главная</Link>          
+                        <Link to="history" id='surprise3' className="header__link_type_burger header__invisible" href="/history">История сделок</Link>          
                         <Link to="lots" id='surprise4' className="header__link_type_burger header__invisible" href="/Lots">Лоты для инвестирования</Link>
                         <Link to="saved-lots" id='surprise5' className="header__link_type_burger header__invisible" href="/saved-lots">Проинвестированные лоты</Link>
                         <Link onClick = {props.handleRequest} to="profile" id='surprise6' className="header__link_type_burger header__invisible" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
