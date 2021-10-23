@@ -57,6 +57,7 @@ const Header = (props) => {
             <header className="header">
                 <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
                 <div className="header__menu">
+                    <Link to="history" className="header__link header__link_type_hidden" href="/history">История сделок</Link>
                     <Link to="lots" className="header__link header__link_type_hidden" href="/lots">Лоты для инвестирования</Link>
                     <Link to="saved-lots" className="header__link header__link_type_hidden" href="/saved-lots">Выбранные вами лоты</Link>
                     <Link to="profile" className="header__link header__link_type_hidden" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
@@ -79,7 +80,8 @@ const Header = (props) => {
     <div>
         <header className="header">
             <p className="header__logo" src={reactLogo} alt="Логотип место"></p>
-            <div className="header__menu">
+            <div className="header__menu">            
+                <Link to="history" className="header__link header__link_type_hidden" href="/history">История сделок</Link>
                 <Link to="lots" className="header__link header__link_type_hidden" href="/lots">Лоты для инвестирования</Link>
                 <Link to="saved-lots" className="header__link header__link_type_hidden" href="/saved-lots">Выбранные вами лоты</Link>
                 <Link to="profile" className="header__link header__link_type_hidden" href="/profile"><img className="header__profileLink" src={profileLink} alt="Логотип место"/></Link>
@@ -111,6 +113,7 @@ const Header = (props) => {
         else if (currentUrl == '/profile') {return logined}
         else if (currentUrl == '/signin') {return signing}
         else if (currentUrl == '/adminka') {return adminka}
+        else if (currentUrl == '/history') {return logined}
     }
 
     return (

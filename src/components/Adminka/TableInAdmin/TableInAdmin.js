@@ -61,7 +61,7 @@ const TableInAdmin = (item) => {
                         <td>{item.revenueFromLot}</td>
                     </tr>
                     <tr className="movies-card__text">
-                        <td>ID инвестора</td>
+                        <td>Статус</td>
                         <td>{item.status}</td>
                     </tr>
                     <tr className="movies-card__text">

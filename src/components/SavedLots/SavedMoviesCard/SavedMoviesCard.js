@@ -92,7 +92,7 @@ const SavedMoviesCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
                                     <td>{item.sellPrice}</td>
                                 </tr>
                                 <tr className="movies-card__text">
-                                    <td>Доходность:</td>
+                                    <td>Доход инвестора:</td>
                                     <td>{item.revenueFromLot}</td>
                                 </tr>
                             </tbody>

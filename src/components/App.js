@@ -21,6 +21,7 @@ import cardsApi from '../utils/CardsApi';
 import * as auth from '../utils/auth';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import LotsHistory from './LotsHistory/LotsHistory';
 
 function App() {
 
@@ -242,6 +243,12 @@ function App() {
                                     loggedIn = {true}
                                 >
                                 </ProtectedRoute>
+
+                                <ProtectedRoute path = "/history"
+                                    component = {LotsHistory}
+                                    loggedIn = {true}
+                            >
+                            </ProtectedRoute>
                             
 
                             <Route path = "/signin">

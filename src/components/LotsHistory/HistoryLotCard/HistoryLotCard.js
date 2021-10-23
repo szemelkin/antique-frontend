@@ -1,52 +1,29 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-import SliderInCard from '../SliderInCard/SliderInCard';
+import SliderInCard from '../../Lots/SliderInCard/SliderInCard';
 
-import './movies-card/movies-card.css'
-
-import savedMovies from '../../../images/saved.svg'
-import notSavedMovies from '../../../images/notsaved.svg'
+import '../../Lots/LotsCard/movies-card/movies-card.css'
 
 import cardsApi from '../../../utils/CardsApi';
+
 
 import { CurrentUserContext } from '../../../contexts/CurrentUserContext';
 
 
-function LotsCard({ handleButtonInvest, onCardClick, ...item}) {
+
+
+const HistoryLotCard = ({handleButtonCancelInvest, onCardClick, ...item}) => {
 
     const currentUser = React.useContext(CurrentUserContext);
-    const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0)
-    const [isSavedMovies, setIsSavedMovies] = useState(false)
-
+    const [numberOfPictureToShow, setNumberOfPictureToShow] = useState(0);
+    
     // Проверяем есть ли картинка у фильма
-    let urlMainPic = ''
+    var urlMainPic = ''
     if (item.image === null) {
         urlMainPic = ''
     } else {urlMainPic = item.image}
 
-
-    const handleTrailerLink = (url) => {
-        window.open(url, '_blank', 'noopener,noreferrer')
-    }
-    
-
-    //Отправляем фильм на сохранение
-    function handleSaveLots() {
-        let status = "отобранные"
-        cardsApi.renewLotStatus(
-            item,
-            status,
-            currentUser._id
-        )
-        .then(handleButtonInvest)
-    }
-
-    //Меняем иконку на карточке фильма на иконку, что фильм сохранен    
-    const savedMoviesSrc = () => {
-        if (isSavedMovies) {return savedMovies} else {return notSavedMovies}
-    }; 
-    
 
     const handlePictureToShowPlus = () => {
         if (numberOfPictureToShow <  item.image.length-1) {
@@ -57,10 +34,10 @@ function LotsCard({ handleButtonInvest, onCardClick, ...item}) {
     const handlePictureToShowMinus = () => {
         if (numberOfPictureToShow > 0) {
             setNumberOfPictureToShow(numberOfPictureToShow-1)
-        }        
+        }       
     }
 
-
+    console.log('SavedMovies', item)
 
     return (
             <div className="movies-card">
@@ -95,16 +72,10 @@ function LotsCard({ handleButtonInvest, onCardClick, ...item}) {
                                 </tr>
                             </tbody>
                         </table>
-
-                        {
-                        // <p className="movies-card__price">Инвестцена лота:</p>
-                        // <p className="movies-card__price">{item.investPrice}</p>
-                        }
-                        <button onClick = {handleSaveLots}  className="movies-card__button movies-card__button_type_long">Инвестировать</button>
-                    </div>                    
-                </div>                
+                    </div>    
+                </div>   
             </div>
     )
 };
 
-export default LotsCard;
+export default HistoryLotCard;

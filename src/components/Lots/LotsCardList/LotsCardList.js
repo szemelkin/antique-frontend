@@ -91,7 +91,6 @@ const LotsCardList = ({nothingToShow, arrayForRenderWithRespectToScreenToList}) 
             
             <ImagePopup 
                 card = {selectedCard}
-                isOpen = {isPhotoPopupOpen}
                 handleClick = {closeAllPopups}     
             />
         </section>
