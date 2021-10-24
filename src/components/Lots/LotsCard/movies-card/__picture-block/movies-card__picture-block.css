@@ -1,5 +1,6 @@
 .movies-card__picture-block {
     width: 30%;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: row;

@@ -71,7 +71,7 @@ const SavedMoviesCardList = ({nothingToShowInSavedMoviesSearch}) => {
                 // localStorage.setItem('cards', JSON.stringify(res))
                 let arrayForRenderByOwnId = []
                 res.forEach(element => {
-                    if (element.investorId === currentUser._id) {
+                    if (element.investorId === currentUser._id && element.status === "отобранные") {
                         arrayForRenderByOwnId.push(element)
                     }
                 })
