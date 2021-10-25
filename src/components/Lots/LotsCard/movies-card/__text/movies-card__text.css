@@ -10,3 +10,10 @@
 
     margin: 0 0 0 0;
 }
+
+@media (max-width: 768px) {
+    .movies-card__text {
+        font-size: 15px;
+        text-align: center;
+    }
+}

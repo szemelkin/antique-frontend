@@ -17,5 +17,6 @@
 @media (max-width: 768px) {
     .movies-card__title {
         font-size: 16px;
+        text-align: center;
     }
 }
