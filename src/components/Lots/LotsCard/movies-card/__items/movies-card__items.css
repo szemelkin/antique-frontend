@@ -11,5 +11,6 @@
 @media (max-width: 768px) {
     .movies-card__items {
         width: 100%;
+        border-radius: 0px 0px 10px 10px;
     }
 }

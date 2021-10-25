@@ -28,6 +28,7 @@
 @media (max-width: 768px) {
     .movies-card {
         width: 90%;
+        height: unset;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -38,6 +39,7 @@
 @media (max-width: 420px) {
     .movies-card {
         width: 90%;
+        height: unset;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;

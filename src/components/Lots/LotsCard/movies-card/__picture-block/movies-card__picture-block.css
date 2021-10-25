@@ -15,5 +15,6 @@
     .movies-card__picture-block {
         width: 100%;
         padding-top: 15px;
+        border-radius: 10px 10px 0px 0px;
     }
 }
